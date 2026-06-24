@@ -26,7 +26,7 @@
       <!-- Header Profil -->
       <header class="profile-card">
         <div class="profile-avatar">
-          <i class="fa-solid fa-graduation-cap"></i>
+          <img src="assets/logo-digital-hub.png" alt="Ika Digital Hub" />
         </div>
         <h1>Generasi Digital Hub</h1>
         <p>
@@ -45,13 +45,20 @@
       </a>
 
       <!-- Menu Navigasi Kategori (Tabs) -->
-      <nav class="tabs-nav">
-        <button class="tab-btn active" data-tab="landing">Halaman Toko</button>
-        <button class="tab-btn" data-tab="worksheet">Worksheet</button>
-        <button class="tab-btn" data-tab="flashcard">Flash Card</button>
-        <button class="tab-btn" data-tab="quiz">Kuis Sekolah</button>
-        <button class="tab-btn" data-tab="storybook">Storybook</button>
-      </nav>
+      <div class="tabs-container">
+        <nav class="tabs-nav" id="tabsNav">
+          <button class="tab-btn active" data-tab="landing">
+            Halaman Toko
+          </button>
+          <button class="tab-btn" data-tab="worksheet">Worksheet</button>
+          <button class="tab-btn" data-tab="flashcard">Flash Card</button>
+          <button class="tab-btn" data-tab="quiz">Kuis Interaktif SD</button>
+          <button class="tab-btn" data-tab="storybook">Storybook</button>
+        </nav>
+        <button class="tab-next-btn" id="tabNextBtn" aria-label="Next Category">
+          <i class="fa-solid fa-chevron-right"></i>
+        </button>
+      </div>
 
       <!-- ================= KATEGORI: HALAMAN TOKO ================= -->
       <div id="landing" class="tab-content active">
@@ -67,7 +74,7 @@
               </div>
               <div class="link-details">
                 <h3>Main Landing Page</h3>
-                <p>Halaman portofolio dan beranda produk utama</p>
+                <p>Tutorial membuat halaman utama website/ landingpage</p>
               </div>
             </div>
             <i class="fa-solid fa-chevron-right arrow-right"></i>
@@ -315,18 +322,19 @@
             </div>
             <i class="fa-solid fa-chevron-right arrow-right"></i>
           </a>
+
           <a
-            href="https://drive.google.com/file/d/17Z3YxlRS6XB1Fmj3piUB1jRF-kLIXOOI/view?usp=drive_link"
+            href="https://drive.google.com/drive/folders/1wjxrXimkU-em0KOehtTSGDWdwWrPpYQA?usp=drive_link"
             target="_blank"
             class="link-card"
           >
             <div class="link-info">
               <div class="link-icon icon-fc">
-                <i class="fa-solid fa-user-astronaut"></i>
+                <i class="fa-solid fa-folder"></i>
               </div>
               <div class="link-details">
-                <h3>Seri Tata Surya & Planet</h3>
-                <p>Mengenal jagat raya secara visual</p>
+                <h3>Full Flashcard</h3>
+                <p>Kumpulan Flashcard</p>
               </div>
             </div>
             <i class="fa-solid fa-chevron-right arrow-right"></i>

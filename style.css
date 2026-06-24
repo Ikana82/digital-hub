@@ -1,97 +1,172 @@
+/* ================= SYSTEM RESET & VARIABLES ================= */
 :root {
-  --primary: #4f46e5;
-  --secondary: #06b6d4;
-  --accent: #f59e0b;
-  --bg: #f8fafc;
-  --card-bg: #ffffff;
-  --text-main: #1e293b;
-  --text-muted: #64748b;
+  --primary-color: #4f46e5;
+  --bg-gradient: linear-gradient(135deg, #f0fdf4 0%, #eff6ff 100%);
+  --text-main: #1f2937;
+  --text-muted: #6b7280;
+  --card-bg: rgba(255, 255, 255, 0.95);
+  --shadow-sm:
+    0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+  --shadow-md:
+    0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.02);
+  --shadow-lg:
+    0 20px 25px -5px rgba(0, 0, 0, 0.08), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  --radius-lg: 24px;
+  --radius-md: 16px;
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Reset Dasar */
 * {
-  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: "Plus Jakarta Sans", sans-serif;
+  box-sizing: border-box;
 }
 
 body {
-  background-color: var(--bg);
+  font-family: "Plus Jakarta Sans", sans-serif;
+  background: var(--bg-gradient);
   color: var(--text-main);
   min-height: 100vh;
-  padding: 2rem 1rem;
+  padding: 40px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
 }
 
 .container {
+  width: 100%;
   max-width: 680px;
   margin: 0 auto;
 }
 
-/* Profile Header */
+/* ================= HEADER PROFILE ================= */
 .profile-card {
+  background: var(--card-bg);
+  padding: 25px 10px;
+  border-radius: var(--radius-lg);
   text-align: center;
-  margin-bottom: 2.5rem;
-  animation: fadeIn 0.6s ease;
+  box-shadow: var(--shadow-lg);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  margin-bottom: 25px;
+  position: relative;
+  overflow: hidden;
 }
 
-.profile-avatar {
-  width: 96px;
-  height: 96px;
-  background: linear-gradient(135deg, var(--primary), var(--secondary));
-  color: white;
+.profile-avatar img {
+  width: 110px;
+  height: 110px;
   border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto 1rem;
-  font-size: 2.5rem;
-  box-shadow: 0 10px 25px rgba(79, 70, 229, 0.2);
+  object-fit: cover;
+  border: 4px solid #fff;
+  box-shadow: var(--shadow-md);
+  margin-bottom: 20px;
+  transition: var(--transition);
+}
+
+.profile-card:hover .profile-avatar img {
+  transform: scale(1.05) rotate(5deg);
 }
 
 .profile-card h1 {
-  font-size: 1.75rem;
+  font-size: 1.8rem;
   font-weight: 800;
-  margin-bottom: 0.5rem;
+  color: #111827;
+  margin-bottom: 12px;
   letter-spacing: -0.5px;
 }
 
 .profile-card p {
-  color: var(--text-muted);
   font-size: 0.95rem;
-  max-width: 600px;
-  margin: 0 auto;
-  line-height: 1.5;
+  color: var(--text-muted);
+  line-height: 1.6;
 }
 
-/* Tombol Folder Utama */
+/* ================= MAIN DRIVE BUTTON ================= */
 .main-folder-btn {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.5rem;
-  background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+  gap: 12px;
+  background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
   color: white;
-  padding: 1rem;
-  border-radius: 16px;
   text-decoration: none;
+  padding: 18px;
+  border-radius: var(--radius-md);
   font-weight: 700;
-  margin-bottom: 2rem;
-  box-shadow: 0 4px 12px rgba(29, 78, 216, 0.2);
-  transition: transform 0.2s;
+  font-size: 1.05rem;
+  box-shadow: 0 10px 20px -5px rgba(22, 163, 74, 0.3);
+  transition: var(--transition);
+  margin-bottom: 30px;
 }
 
 .main-folder-btn:hover {
-  transform: translateY(-2px);
+  transform: translateY(-3px);
+  box-shadow: 0 15px 25px -5px rgba(22, 163, 74, 0.4);
 }
 
-/* Tab Navigasi */
+.main-folder-btn i {
+  font-size: 1.3rem;
+}
+
+/* ================= TABS NAVIGATION ================= */
 .tabs-nav {
   display: flex;
-  gap: 0.5rem;
+  gap: 8px;
   overflow-x: auto;
-  padding-bottom: 0.75rem;
-  margin-bottom: 1.5rem;
+  padding-bottom: 10px;
+  margin-bottom: 25px;
+  scrollbar-width: none; /* Hide scrollbar for Firefox */
+}
+
+.tabs-nav::-webkit-scrollbar {
+  display: none; /* Hide scrollbar for Chrome/Safari */
+}
+
+.tab-btn {
+  flex: 0 0 auto;
+  background: var(--card-bg);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  padding: 12px 20px;
+  border-radius: 30px;
+  font-family: inherit;
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  cursor: pointer;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+}
+
+.tab-btn:hover {
+  background: #f3f4f6;
+  color: var(--text-main);
+}
+
+.tab-btn.active {
+  background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+  color: white;
+  box-shadow: 0 10px 20px -5px rgba(22, 163, 74, 0.3);
+  border-color: #16a34a;
+}
+
+/* Kontainer Utama Navigasi */
+.tabs-container {
+  position: relative;
+  margin-bottom: 25px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+/* Area Menu yang Bisa Di-scroll */
+.tabs-nav {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  scroll-behavior: smooth; /* Membuat efek geser menjadi halus saat tombol diklik */
+  width: 100%;
+  padding: 5px 50px 5px 0px; /* Memberi ruang di kanan agar tombol tidak tertutup tombol panah */
   scrollbar-width: none;
 }
 
@@ -99,278 +174,306 @@ body {
   display: none;
 }
 
-.tab-btn {
-  background: #e2e8f0;
-  border: none;
-  padding: 0.6rem 1.2rem;
-  border-radius: 30px;
-  font-size: 0.85rem;
-  font-weight: 700;
-  color: var(--text-muted);
-  cursor: pointer;
-  white-space: nowrap;
-  transition: all 0.2s ease;
-}
-
-.tab-btn.active {
-  background: var(--primary);
+/* Tombol Panah "Next" Modern */
+.tab-next-btn {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 38px;
+  height: 38px;
+  background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
   color: white;
-  box-shadow: 0 4px 10px rgba(79, 70, 229, 0.25);
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(22, 163, 74, 0.35);
+  z-index: 10;
+  transition: var(--transition);
 }
 
-/* Konten Tab */
+.tab-next-btn:hover {
+  background: linear-gradient(135deg, #16a34a 0%, #15803d 100%);
+  transform: translateY(-50%) scale(1.05);
+}
+
+/* Menyembunyikan tombol panah di layar PC/Laptop besar karena semua menu sudah terlihat */
+@media (min-width: 769px) {
+  .tab-next-btn {
+    display: none;
+  }
+  .tabs-nav {
+    padding-right: 0; /* Kembalikan padding di desktop */
+  }
+}
+
+/* ================= TAB CONTENT SYSTEM ================= */
 .tab-content {
   display: none;
-  animation: slideUp 0.4s ease;
+  animation: fadeIn 0.4s ease-in-out;
 }
 
 .tab-content.active {
   display: block;
 }
 
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ================= GRID LINKS (CARDS) ================= */
 .grid-links {
   display: flex;
   flex-direction: column;
-  gap: 0.85rem;
+  gap: 16px;
 }
 
-/* Desain Card Link */
 .link-card {
-  background: var(--card-bg);
-  border: 1px solid #e2e8f0;
-  border-radius: 16px;
-  padding: 1.1rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  background: var(--card-bg);
+  padding: 20px;
+  border-radius: var(--radius-md);
   text-decoration: none;
-  color: var(--text-main);
-  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: var(--shadow-md);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  transition: var(--transition);
 }
 
 .link-card:hover {
-  transform: translateY(-2px);
-  border-color: var(--primary);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.04);
+  transform: translateX(4px) translateY(-2px);
+  box-shadow: var(--shadow-lg);
+  border-color: rgba(79, 70, 229, 0.2);
 }
 
 .link-info {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 16px;
 }
 
+/* Icons styling with vibrant colors */
 .link-icon {
-  width: 42px;
-  height: 42px;
-  border-radius: 12px;
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.25rem;
+  font-size: 1.4rem;
 }
 
-/* Pewarnaan Icon Kustom */
 .icon-lp {
-  background: #eef2ff;
-  color: #4f46e5;
+  background: #e0e7ff;
+  color: #4338ca;
 }
 .icon-ws {
-  background: #ecfdf5;
-  color: #10b981;
+  background: #dcfce7;
+  color: #15803d;
 }
 .icon-fc {
-  background: #fff7ed;
-  color: #f97316;
+  background: #ffedd5;
+  color: #c2410c;
 }
 .icon-qz {
-  background: #f0fdf4;
-  color: #22c55e;
+  background: #fae8ff;
+  color: #a21caf;
 }
 .icon-wa {
   background: #dcfce7;
   color: #16a34a;
+  font-size: 1.6rem;
 }
 
 .link-details h3 {
-  font-size: 0.95rem;
+  font-size: 1.05rem;
   font-weight: 700;
-  margin-bottom: 0.15rem;
+  color: #111827;
+  margin-bottom: 4px;
 }
 
 .link-details p {
-  font-size: 0.8rem;
+  font-size: 0.88rem;
   color: var(--text-muted);
+  line-height: 1.4;
 }
 
 .arrow-right {
-  color: #94a3b8;
-  font-size: 0.85rem;
-  transition: transform 0.2s;
+  color: #d1d5db;
+  transition: var(--transition);
+  font-size: 0.9rem;
 }
 
 .link-card:hover .arrow-right {
-  transform: translateX(4px);
-  color: var(--primary);
+  color: var(--primary-color);
+  transform: translateX(3px);
 }
 
-/* Sub Navigation Buttons (Sub-Header Tab) */
+/* ================= SUB NAVIGATION BUTTONS ================= */
 .sub-nav-buttons {
-  margin-bottom: 1rem;
-  display: flex;
-  gap: 0.5rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 20px;
 }
 
 .sub-nav-buttons a {
-  flex: 1;
-  text-align: center;
-  font-size: 0.8rem;
-  padding: 0.6rem;
-  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
   text-decoration: none;
-  font-weight: bold;
+  padding: 14px;
+  border-radius: var(--radius-md);
+  font-weight: 700;
+  font-size: 0.9rem;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+}
+
+.sub-nav-buttons a:hover {
+  transform: translateY(-2px);
 }
 
 .btn-sub-green {
-  background: #def7ec;
-  color: #03543f;
+  background: #10b981;
+  color: white;
 }
 .btn-sub-blue {
-  background: #ebf5ff;
-  color: #1e429f;
+  background: #3b82f6;
+  color: white;
 }
 .btn-sub-orange {
-  background: #fff7ed;
-  color: #c2410c;
-  display: block;
-  width: 100%;
+  background: #f97316;
+  color: white;
+  grid-column: span 2;
 }
 
-/* Grid Tombol Kelas Kuis */
-.portal-card {
-  border-left: 4px solid var(--secondary);
-}
-
+/* ================= QUIZ CLASS GRID ================= */
 .quiz-grid-classes {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 0.75rem;
-  margin-top: 0.5rem;
+  gap: 12px;
+  margin-top: 8px;
 }
 
 .class-btn {
-  background: white;
-  border: 1px solid #e2e8f0;
-  padding: 1rem;
-  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: var(--card-bg);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  padding: 16px;
+  border-radius: var(--radius-md);
   text-decoration: none;
-  text-align: center;
-  color: var(--text-main);
   font-weight: 700;
-  font-size: 0.9rem;
-  transition: all 0.2s;
+  font-size: 0.95rem;
+  color: var(--text-main);
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
 }
 
 .class-btn:hover {
-  background: #f1f5f9;
-  border-color: var(--secondary);
+  background: var(--primary-color);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 15px -3px rgba(79, 70, 229, 0.2);
 }
 
-/* Footer */
+/* ================= FOOTER ================= */
 footer {
   text-align: center;
-  margin-top: 3rem;
-  font-size: 0.8rem;
+  margin-top: 40px;
+  padding: 20px 0;
+}
+
+footer p {
+  font-size: 0.85rem;
   color: var(--text-muted);
+  font-weight: 600;
 }
 
-/* Animasi */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(-10px);
+/* ================= RESPONSIVE MEDIA QUERIES ================= */
+
+/* Mengoptimalkan tampilan untuk Tablet & HP (Layar di bawah 768px) */
+@media (max-width: 768px) {
+  body {
+    padding: 20px 12px; /* Mengurangi ruang kosong di pinggir layar */
   }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+
+  .profile-card {
+    padding: 25px 15px;
+  }
+
+  .profile-avatar img {
+    width: 90px;
+    height: 90px; /* Ukuran foto profil sedikit lebih kecil di HP */
+  }
+
+  .profile-card h1 {
+    font-size: 1.5rem; /* Menyesuaikan ukuran judul */
+  }
+
+  .profile-card p {
+    font-size: 0.88rem;
+  }
+
+  .main-folder-btn {
+    padding: 15px;
+    font-size: 0.95rem;
   }
 }
 
-@keyframes slideUp {
-  from {
-    opacity: 0;
-    transform: translateY(15px);
+/* Mengoptimalkan tampilan khusus HP Layar Kecil (Layar di bawah 480px) */
+@media (max-width: 480px) {
+  .link-card {
+    padding: 16px; /* Menghemat ruang di dalam kartu */
   }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+
+  .link-info {
+    gap: 12px; /* Merapatkan jarak ikon dan teks */
   }
-}
 
-/* Gaya Khusus Kategori Storybook */
-#storybook .portal-card {
-  background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
-  border: none;
-  color: white;
-  transition: transform 0.3s ease;
-}
+  .link-icon {
+    width: 44px;
+    height: 44px;
+    font-size: 1.1rem; /* Ikon menyesuaikan ukuran layar HP */
+    border-radius: 10px;
+  }
 
-#storybook .portal-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(99, 102, 241, 0.3);
-}
+  .link-details h3 {
+    font-size: 0.95rem;
+  }
 
-#storybook .portal-card h3,
-#storybook .portal-card p {
-  color: white;
-}
+  .link-details p {
+    font-size: 0.8rem;
+  }
 
-#storybook .icon-bk {
-  background: rgba(255, 255, 255, 0.2) !important;
-  color: white !important;
-}
+  /* Mengubah tombol Kelas SD & Storybook dari 2 kolom menjadi 1 kolom penuh */
+  .quiz-grid-classes,
+  .sub-nav-buttons {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
 
-/* Mengubah tombol kelas menjadi Tile/Kartu Kecil */
-#storybook .quiz-grid-classes {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 15px;
-  margin-top: 20px;
-}
+  .class-btn {
+    padding: 14px;
+    font-size: 0.9rem;
+  }
 
-#storybook .class-btn {
-  background: white;
-  border: 2px solid #f3f4f6;
-  border-radius: 15px;
-  padding: 20px 15px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  font-weight: 700;
-  color: #4b5563;
-  text-decoration: none;
-  transition: all 0.3s ease;
-  height: auto; /* Agar fleksibel */
-}
-
-#storybook .class-btn i {
-  font-size: 2rem;
-  margin-bottom: 5px;
-}
-
-/* Warna Hover khusus tiap kategori */
-#storybook .class-btn:nth-child(1):hover {
-  /* Cerita Hewan */
-  border-color: #10b981;
-  background: #ecfdf5;
-  color: #047857;
-}
-
-#storybook .class-btn:nth-child(2):hover {
-  /* Kisah Nabi */
-  border-color: #f59e0b;
-  background: #fffbeb;
-  color: #b45309;
+  .arrow-right {
+    display: none; /* Menyembunyikan panah kecil di kanan agar teks di HP tidak sesak */
+  }
 }
